@@ -11,7 +11,9 @@ public class SuperArray {
    }
 
    public int size() {
-      return size;
+      for (int i = 0, i < data.length; i++) {
+         if (data[i] != null) {
+         
    }
 
    public boolean isEmpty() {
@@ -21,19 +23,21 @@ public class SuperArray {
    public boolean add(String value) {
       for (int i = 0; i < data.length; i++) {
           if (data[i] != null) {
-             data[i] = String;
+             data[i] = value;
              return true;
           }
       }
+      return true;
    }
 
    public String toString() {
       String newStr = "[";
       for (int i = 0; i < data.length; i++) {
-          if (data[i] = null) return newStr;
+          if (data[i] == null) return newStr;
           else if (i != data.length-1)  newStr += data[i] + ", ";
           else newStr += data[i] + "]";
       }
+      return newStr;
    }
 
    public String toStringDebug() {
@@ -42,9 +46,11 @@ public class SuperArray {
           if (i != data.length-1)  newStr += data[i] + ", ";
           else newStr += data[i] + "]";
       }
+      return newStr;
    }
 
    public String get(int index) {
       if (index >= size() || index < 0) return null;
       else return data[index];
    }
+}
