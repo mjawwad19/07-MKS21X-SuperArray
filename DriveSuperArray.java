@@ -44,6 +44,12 @@ public class DriveSuperArray{
       System.out.println(l1.toStringDebug()); // [cat,cow, pigx8]
       l1.add("new");
       System.out.println(l1.toStringDebug());// [cat, cow, pigx8, new, nullx9]
+      System.out.println(l1.contains("meow"));//false
+      System.out.println(l1.indexOf("meow"));//-1
+      System.out.println(l1.lastIndexOf("meow"));//-1
+      System.out.println(l1.contains("pig"));//true
+      System.out.println(l1.indexOf("pig"));//2
+      System.out.println(l1.lastIndexOf("pig"));//9
 
   }
 }
