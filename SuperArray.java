@@ -11,39 +11,39 @@ public class SuperArray {
    }
 
    public int size() {
-      for (int i = 0, i < data.length; i++) {
-         if (data[i] != null) {
-         
+     return size;
    }
 
    public boolean isEmpty() {
       return size == 0;
    }
-  
+
    public boolean add(String value) {
-      for (int i = 0; i < data.length; i++) {
-          if (data[i] != null) {
+     boolean added = false;
+      for (int i = 0; i < data.length && added == false; i++) {
+          if (data[i] == null) {
              data[i] = value;
-             return true;
+             size ++;
+             added = true;
           }
       }
       return true;
    }
 
    public String toString() {
-      String newStr = "[";
-      for (int i = 0; i < data.length; i++) {
-          if (data[i] == null) return newStr;
-          else if (i != data.length-1)  newStr += data[i] + ", ";
-          else newStr += data[i] + "]";
-      }
-      return newStr;
+     if (size == 0) return "[]";
+     String newStr = "[";
+     for (int i = 0; i < size(); i++) {
+       if (i != size() -1) newStr += data[i] + ", ";
+       else newStr += data[i] + "]";
+     }
+     return newStr;
    }
 
    public String toStringDebug() {
       String newStr = "[";
       for (int i = 0; i < data.length; i++) {
-          if (i != data.length-1)  newStr += data[i] + ", ";
+          if (i < data.length-1)  newStr += data[i] + ", ";
           else newStr += data[i] + "]";
       }
       return newStr;
