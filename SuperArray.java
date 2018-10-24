@@ -31,7 +31,7 @@ public class SuperArray {
       }
       return true;
    }
-
+   //Phase 2 only method
    private void resize() {
      String[] temp = data;
      data = new String[temp.length  * 2];
@@ -81,14 +81,16 @@ public class SuperArray {
        data[index] = value;
        return oldVal;}
    }
-
+   //Phase 3
+   //Returns true if this list contains the specified element.
    public boolean contains(String target) {
      for (int i = 0; i < size(); i++) {
        if (target == data[i]) {return true;}
      }
      return false;
    }
-
+   /*Returns the index of the first occurrence of the specified element
+   in this list, or -1 if this list does not contain the element.*/
    public int indexOf(String target) {
      if (contains(target)) {
        boolean stop = false;
@@ -102,7 +104,8 @@ public class SuperArray {
      }
      return -1;
    }
-
+   /*Returns the index of the last occurrence of the specified element
+   in this list, or -1 if this list does not contain the element.*/
    public int lastIndexOf(String target) {
      if (contains(target)) {
        boolean stop = false;
