@@ -81,4 +81,39 @@ public class SuperArray {
        data[index] = value;
        return oldVal;}
    }
+
+   public boolean contains(String target) {
+     for (int i = 0; i < size(); i++) {
+       if (target == data[i]) {return true;}
+     }
+     return false;
+   }
+
+   public int indexOf(String target) {
+     if (contains(target)) {
+       boolean stop = false;
+       for (int i = 0; i < size()
+            && stop == false; i++) {
+         if (target == data[i]) {
+           stop = true;
+           return i;
+         }
+       }
+     }
+     return -1;
+   }
+
+   public int lastIndexOf(String target) {
+     if (contains(target)) {
+       boolean stop = false;
+       for (int i = size() -1; i > -1
+            && stop == false; i--) {
+         if (target == data[i]) {
+           stop = true;
+           return i;
+         }
+       }
+     }
+     return -1;
+   }
 }
