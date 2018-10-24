@@ -8,6 +8,7 @@ public class SuperArray {
    //Removes all of the elements from this list.
    public void clear() {
       size = 0;
+      data = new String[10];
    }
    //Removes all of the elements from this list.
    public int size() {
@@ -26,6 +27,7 @@ public class SuperArray {
              size ++;
              added = true;
           }
+          if (data[data.length - 1] != null) {return false; }
       }
       return true;
    }
