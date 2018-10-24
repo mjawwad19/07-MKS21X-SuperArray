@@ -21,5 +21,15 @@ public class DriveSuperArray{
       System.out.println (l1.set(2, "camel")); //null
       System.out.println (l1.set(1, "camel")); //horse
       System.out.println (l1); // [cat, camel]
+      l1.clear();
+      System.out.println (l1.size()); //0
+      System.out.println (l1.isEmpty()); //true
+      System.out.println (l1); //[]
+      System.out.println (l1.toStringDebug()); // [10 null array]
+      l1.add("cat");
+      System.out.println (l1.size()); //1
+      System.out.println (l1.isEmpty()); //false
+      System.out.println (l1); //[cat]
+      System.out.println (l1.toStringDebug()); // [cat, nullx9]
   }
 }
