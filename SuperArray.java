@@ -21,16 +21,25 @@ public class SuperArray {
    //Appends the specified element to the end of this list. Returns true.
    public boolean add(String value) {
      boolean added = false;
+     if (data[data.length - 1] != null) resize();
       for (int i = 0; i < data.length && added == false; i++) {
           if (data[i] == null) {
              data[i] = value;
              size ++;
              added = true;
           }
-          if (data[data.length - 1] != null) {return false; }
       }
       return true;
    }
+
+   private void resize() {
+     String[] temp = data;
+     data = new String[temp.length  * 2];
+     for (int i = 0; i < temp.length; i++) {
+       data[i] = temp[i];
+     }
+   }
+
    /*Returns the data in the format: "[A, B, FISH, cat, Dog]"
    Without double quotes around the data elements.*/
    public String toString() {
@@ -53,14 +62,20 @@ public class SuperArray {
    }
    //Returns the element at the specified position in this list.
    public String get(int index) {
-      if (index >= size() || index < 0) return null;
+      if (index >= size() || index < 0) {
+        System.out.print("Invalid index ");
+        return null;
+      }
       else return data[index];
    }
    /*Replaces the element at the specified position in this
    list with the specified element, returns the old element.*/
    public String set(int index, String value) {
      String oldVal = "";
-     if (index >= size() || index < 0) return null;
+     if (index >= size() || index < 0) {
+       System.out.print("Invalid index error; returning ");
+       return null;
+     }
      else {
        oldVal = data[index];
        data[index] = value;
