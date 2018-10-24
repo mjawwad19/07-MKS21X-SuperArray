@@ -54,4 +54,14 @@ public class SuperArray {
       if (index >= size() || index < 0) return null;
       else return data[index];
    }
+   /*Replaces the element at the specified position in this
+   list with the specified element, returns the old element.*/
+   public String set(int index, String value) {
+     String oldVal = "";
+     if (index >= size() || index < 0) return null;
+     else {
+       oldVal = data[index];
+       data[index] = value;
+       return oldVal;}
+   }
 }
