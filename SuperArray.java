@@ -20,16 +20,10 @@ public class SuperArray {
    }
    //Appends the specified element to the end of this list. Returns true.
    public boolean add(String value) {
-     boolean added = false;
-     if (data[data.length - 1] != null) resize();
-      for (int i = 0; i < data.length && added == false; i++) {
-          if (data[i] == null) {
-             data[i] = value;
-             size ++;
-             added = true;
-          }
-      }
-      return true;
+     if (data.length == size()) resize();
+     data[size()] = value;
+     size ++;
+     return true;
    }
    //Phase 2 only method
    private void resize() {
@@ -63,7 +57,7 @@ public class SuperArray {
    //Returns the element at the specified position in this list.
    public String get(int index) {
       if (index >= size() || index < 0) {
-        System.out.print("Invalid index ");
+        System.out.print("Invalid index error; returning null");
         return null;
       }
       else return data[index];
@@ -119,4 +113,8 @@ public class SuperArray {
      }
      return -1;
    }
+
+   /*All elements at the index or to the right, are shifted to the right
+    to make   space, then insert the specified element at the specified
+    position in this list. Prints an error when index is out of range.*/
 }
