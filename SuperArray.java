@@ -102,9 +102,9 @@ public class SuperArray {
    }
 
    /*All elements at the index or to the right, are shifted to the right
-    to make   space, then insert the specified element at the specified
-    position in this list. Prints an error when index is out of range.*/
-    public void add(int index, String value) {
+   to make   space, then insert the specified element at the specified
+   position in this list. Prints an error when index is out of range.*/
+   public void add(int index, String value) {
       if (index >= size() || index < 0)
            System.out.print("Invalid index error");
       if (data.length == size()) resize();
@@ -114,4 +114,30 @@ public class SuperArray {
       data[index] = value;
       size++;
     }
+   /*Removes the element at the specified position in this list and shifts
+   all subsequent elements to the left. Return the element removed. Prints an
+   error when index is out of range.*/
+   public String remove(int index) {
+     if (index >= size() || index < 0) {
+       System.out.println("Index error; returning ");
+       return null;
+     }
+     String temp = data[index];
+     for (int i = index; i < size() -1; i++) {
+       data[i] = data[i+1];
+     }
+     size--;
+     return temp;
+   }
+
+
+
+
+
+
+
+
+
+
+
 }
