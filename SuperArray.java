@@ -105,7 +105,7 @@ public class SuperArray {
    to make   space, then insert the specified element at the specified
    position in this list. Prints an error when index is out of range.*/
    public void add(int index, String value) {
-      if (index >= size() || index < 0)
+      if (index > size() || index < 0)
            System.out.print("Invalid index error");
       if (data.length == size()) resize();
       for (int i = size(); i > index; i--) {
@@ -129,15 +129,15 @@ public class SuperArray {
      size--;
      return temp;
    }
-
-
-
-
-
-
-
-
-
-
-
+   /*Removes the first occurrence of the specified element from this list and
+   return true if it is present . Return false if it is nt in the list. Upon
+   removal, shift all the subsequent elements to the left. */
+   public boolean remove(String element) {
+     int index = indexOf(element);
+     // hehe cheat
+     if (index == -1) return false;
+     remove(index);
+     //hehe cheat x 2
+     return true;
+   }
 }
