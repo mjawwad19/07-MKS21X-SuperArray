@@ -52,7 +52,7 @@ public class SuperArray {
           newStr+= data[i];
           if (i != data.length -1) newStr += ", ";
       }
-      newStr += "]"l
+      newStr += "]";
       return newStr;
    }
    //Returns the element at the specified position in this list.
@@ -118,7 +118,7 @@ public class SuperArray {
    /*All elements at the index or to the right, are shifted to the right
     to make   space, then insert the specified element at the specified
     position in this list. Prints an error when index is out of range.*/
-    public void add(int index, String value) {
+/*    public void add(int index, String value) {
       if (index >= size() || index < 0) System.out.print("Invalid index error");
       if (data.length == size()) resize();
       for (int i = size() -1 ; i > -1, i--) {
@@ -129,4 +129,6 @@ public class SuperArray {
         size++;
         }
       }
+}
+*/
 }
