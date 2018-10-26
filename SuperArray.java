@@ -104,17 +104,14 @@ public class SuperArray {
    /*All elements at the index or to the right, are shifted to the right
     to make   space, then insert the specified element at the specified
     position in this list. Prints an error when index is out of range.*/
-/*    public void add(int index, String value) {
-      if (index >= size() || index < 0) System.out.print("Invalid index error");
+    public void add(int index, String value) {
+      if (index >= size() || index < 0)
+           System.out.print("Invalid index error");
       if (data.length == size()) resize();
-      for (int i = size() -1 ; i > -1, i--) {
-        if (i > index) {
-          data[i] = data[i-1];
-        }
-        data[index] = value;
-        size++;
-        }
+      for (int i = size(); i > index; i--) {
+        data[i] = data[i-1];
       }
-}
-*/
+      data[index] = value;
+      size++;
+    }
 }
