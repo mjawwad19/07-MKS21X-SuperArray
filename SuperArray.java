@@ -121,11 +121,11 @@ public class SuperArray {
    all subsequent elements to the left. Return the element removed. Prints an
    error when index is out of range.*/
    public String remove(int index) {
-     if (index < 0 || index > size()) {
+     if (index < 0 || index >= size()) {
        throw new IndexOutOfBoundsException("Invalid Index");
      }
      String temp = data[index];
-     for (int i = index; i < data.length-1; i++) {
+     for (int i = index; i < size()-1; i++) {
        data[i] = data[i+1];
    	 }
    	 size--;
