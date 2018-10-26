@@ -57,24 +57,21 @@ public class SuperArray {
    }
    //Returns the element at the specified position in this list.
    public String get(int index) {
-      if (index >= size() || index < 0) {
-        System.out.print("Invalid index error; returning ");
-        return null;
-      }
-      else return data[index];
-   }
+     if (index < 0 || index >= size()) {
+			throw new IndexOutOfBoundsException("This index is invalid");
+		}
+		return data[index];
+	}
    /*Replaces the element at the specified position in this
    list with the specified element, returns the old element.*/
    public String set(int index, String value) {
      String oldVal = "";
-     if (index >= size() || index < 0) {
-       System.out.print("Invalid index error; returning ");
-       return null;
+     if (index < 0 || index >= size()) {
+       throw new IndexOutOfBoundsException("This index is invalid");
      }
-     else {
-       oldVal = data[index];
-       data[index] = value;
-       return oldVal;}
+     oldVal = data[index];
+     data[index] = value;
+     return oldVal;
    }
    //Phase 3
    //Returns true if this list contains the specified element.
@@ -105,32 +102,30 @@ public class SuperArray {
    to make   space, then insert the specified element at the specified
    position in this list. Prints an error when index is out of range.*/
    public void add(int index, String value) {
+     if (index < 0 || index > size()) {
+       throw new IndexOutOfBoundsException("Invalid Index");
+     }
      if (size() >= data.length) resize();
-      try {
-        for (int i = size(); i > index; i--) {
-          data[i] = data[i-1];
-        }
-        data[index] = value;
-        size++;
-      }
-      catch (ArrayIndexOutOfBoundsException e){ e.printStackTrace();}
-    }
+     for (int i = size(); i > index; i--) {
+       data[i] = data[i-1];
+     }
+     data[index] =value;
+     size++;
+   }
    /*Removes the element at the specified position in this list and shifts
    all subsequent elements to the left. Return the element removed. Prints an
    error when index is out of range.*/
    public String remove(int index) {
-     String temp = data[index];
-     try {
-       for (int i = index; i < data.length-1; i++) {
-   			data[i] = data[i+1];
-   		}
-   		size--;
-   		return temp;
+     if (index < 0 || index > size()) {
+       throw new IndexOutOfBoundsException("Invalid Index");
      }
-		 catch (ArrayIndexOutOfBoundsException e){
-        e.printStackTrace();
-      return null;}
-	}
+     String temp = data[index];
+     for (int i = index; i < data.length-1; i++) {
+       data[i] = data[i+1];
+   	 }
+   	 size--;
+   	 return temp;
+   }
    /*Removes the first occurrence of the specified element from this list and
    return true if it is present . Return false if it is nt in the list. Upon
    removal, shift all the subsequent elements to the left. */
