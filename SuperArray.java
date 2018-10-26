@@ -105,31 +105,31 @@ public class SuperArray {
    to make   space, then insert the specified element at the specified
    position in this list. Prints an error when index is out of range.*/
    public void add(int index, String value) {
-      if (index < 0 || index >= size()) {
-        System.out.print("Invalid index error ");
-        return;
+     if (size() >= data.length) resize();
+      try {
+        for (int i = size(); i > index; i--) {
+          data[i] = data[i-1];
+        }
+        data[index] = value;
+        size++;
       }
-      if (size() >= data.length) resize();
-      for (int i = size(); i > index; i--) {
-        data[i] = data[i-1];
-      }
-      data[index] = value;
-      size++;
+      catch (ArrayIndexOutOfBoundsException e){ e.printStackTrace();}
     }
    /*Removes the element at the specified position in this list and shifts
    all subsequent elements to the left. Return the element removed. Prints an
    error when index is out of range.*/
    public String remove(int index) {
-		if (index < 0 || index >= size()) {
-			System.out.print("Can't remove at this index!");
-			return null;
-		}
-    String temp = data[index];
-		for (int i = index; i < data.length-1; i++) {
-			data[i] = data[i+1];
-		}
-		size--;
-		return temp;
+     String temp = data[index];
+     try {
+       for (int i = index; i < data.length-1; i++) {
+   			data[i] = data[i+1];
+   		}
+   		size--;
+   		return temp;
+     }
+		 catch (ArrayIndexOutOfBoundsException e){
+        e.printStackTrace();
+      return null;}
 	}
    /*Removes the first occurrence of the specified element from this list and
    return true if it is present . Return false if it is nt in the list. Upon
