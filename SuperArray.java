@@ -58,7 +58,7 @@ public class SuperArray {
    //Returns the element at the specified position in this list.
    public String get(int index) {
       if (index >= size() || index < 0) {
-        System.out.print("Invalid index error; returning null");
+        System.out.print("Invalid index error; returning ");
         return null;
       }
       else return data[index];
@@ -87,30 +87,16 @@ public class SuperArray {
    /*Returns the index of the first occurrence of the specified element
    in this list, or -1 if this list does not contain the element.*/
    public int indexOf(String target) {
-     if (contains(target)) {
-       boolean stop = false;
-       for (int i = 0; i < size()
-            && stop == false; i++) {
-         if (target == data[i]) {
-           stop = true;
-           return i;
-         }
-       }
+     for (int i = 0; i < size(); i++) {
+       if (data[i].equals(target)) {return i;}
      }
      return -1;
    }
    /*Returns the index of the last occurrence of the specified element
    in this list, or -1 if this list does not contain the element.*/
    public int lastIndexOf(String target) {
-     if (contains(target)) {
-       boolean stop = false;
-       for (int i = size() -1; i > -1
-            && stop == false; i--) {
-         if (target == data[i]) {
-           stop = true;
-           return i;
-         }
-       }
+     for (int i = size() -1; i > -1; i--) {
+       if (data[i].equals(target)) {return i;}
      }
      return -1;
    }
