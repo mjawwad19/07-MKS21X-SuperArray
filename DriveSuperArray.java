@@ -50,6 +50,15 @@ public class DriveSuperArray{
       System.out.println(l1.contains("pig"));//true
       System.out.println(l1.indexOf("pig"));//2
       System.out.println(l1.lastIndexOf("pig"));//9
-
+      l1.add(3, "hi");
+      System.out.println(l1); // [cat, cow, pig, hi, pigx7, new]
+      System.out.println(l1.toStringDebug());// [cat, cow, pig, hi, pigx7, new, nullx9]
+      l1.remove(2);
+      System.out.println(l1); // [cat, cow, hi, pigx7, new]
+      System.out.println(l1.toStringDebug());// [cat, cow, hi, pigx7, new, nullx9]
+      System.out.println(l1.remove("hello")); // false;
+      System.out.println(l1.remove("pig")); // true;
+      System.out.println(l1);// [cat, cow, hi, pigx6, new]
+      System.out.println(l1.toStringDebug()); // [cat, cow, hi, pigx6, new, nullx9]
   }
 }
