@@ -9,7 +9,7 @@ public class SuperArray {
    public SuperArray(int startingCapacity) {
 			data = new String[startingCapacity];
 			size = 0;
-	}
+    }
    //Removes all of the elements from this list.
    public void clear() {
       size = 0;
@@ -32,11 +32,11 @@ public class SuperArray {
    }
    //Phase 2 only method
    private void resize() {
-     String[] temp = data;
-     data = new String[(temp.length  * 2) + 1];
-     for (int i = 0; i < temp.length; i++) {
-       data[i] = temp[i];
+     String[] temp = new String[(size() * 2) + 1];
+     for (int i = 0; i < size(); i++) {
+       temp[i] = data[i];
      }
+     data = temp;
    }
 
    /*Returns the data in the format: "[A, B, FISH, cat, Dog]"
@@ -82,7 +82,7 @@ public class SuperArray {
    //Returns true if this list contains the specified element.
    public boolean contains(String target) {
      for (int i = 0; i < size(); i++) {
-       if (target == data[i]) {return true;}
+       if (data[i].equals(target)) {return true;}
      }
      return false;
    }
