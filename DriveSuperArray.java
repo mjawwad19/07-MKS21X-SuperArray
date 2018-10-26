@@ -61,5 +61,9 @@ public class DriveSuperArray{
       System.out.println(l1.remove("pig")); // true;
       System.out.println("removed by val "+  l1);// [cat, cow, hi, pigx6, new]
       System.out.println(l1.toStringDebug()); // [cat, cow, hi, pigx6, new, nullx10]
+      l1.remove("cat");
+
+      System.out.println(l1.toStringDebug()); // [cow, hi, pigx6, new, nullx11]
+      System.out.println(l1.get(10));
   }
 }

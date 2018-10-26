@@ -106,7 +106,7 @@ public class SuperArray {
    position in this list. Prints an error when index is out of range.*/
    public void add(int index, String value) {
       if (index < 0 || index >= size()) {
-        System.out.print("Invalid index error");
+        System.out.print("Invalid index error ");
         return;
       }
       if (size() >= data.length) resize();
@@ -121,10 +121,10 @@ public class SuperArray {
    error when index is out of range.*/
    public String remove(int index) {
 		if (index < 0 || index >= size()) {
-			System.out.println("Can't remove at this index!");
+			System.out.print("Can't remove at this index!");
 			return null;
 		}
-		String temp= data[index];
+    String temp = data[index];
 		for (int i = index; i < data.length-1; i++) {
 			data[i] = data[i+1];
 		}
