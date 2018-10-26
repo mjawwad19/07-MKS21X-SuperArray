@@ -37,21 +37,22 @@ public class SuperArray {
    /*Returns the data in the format: "[A, B, FISH, cat, Dog]"
    Without double quotes around the data elements.*/
    public String toString() {
-     if (size == 0) return "[]";
      String newStr = "[";
      for (int i = 0; i < size(); i++) {
-       if (i != size() -1) newStr += data[i] + ", ";
-       else newStr += data[i] + "]";
+       newStr += data[i];
+       if (i != size() -1) newStr += ", ";
      }
+     newStr += "]";
      return newStr;
    }
 
    public String toStringDebug() {
       String newStr = "[";
       for (int i = 0; i < data.length; i++) {
-          if (i < data.length-1)  newStr += data[i] + ", ";
-          else newStr += data[i] + "]";
+          newStr+= data[i];
+          if (i != data.length -1) newStr += ", ";
       }
+      newStr += "]"l
       return newStr;
    }
    //Returns the element at the specified position in this list.
@@ -127,5 +128,5 @@ public class SuperArray {
         data[index] = value;
         size++;
         }
-      } 
+      }
 }
