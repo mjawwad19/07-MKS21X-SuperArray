@@ -5,6 +5,11 @@ public class SuperArray {
    public SuperArray() {
       data = new String[10];
    }
+
+   public SuperArray(int startingCapacity) {
+			data = new String[startingCapacity];
+			size = 0;
+	}
    //Removes all of the elements from this list.
    public void clear() {
       size = 0;
@@ -28,7 +33,7 @@ public class SuperArray {
    //Phase 2 only method
    private void resize() {
      String[] temp = data;
-     data = new String[temp.length  * 2];
+     data = new String[(temp.length  * 2) + 1];
      for (int i = 0; i < temp.length; i++) {
        data[i] = temp[i];
      }
