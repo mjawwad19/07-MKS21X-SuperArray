@@ -105,8 +105,10 @@ public class SuperArray {
    to make   space, then insert the specified element at the specified
    position in this list. Prints an error when index is out of range.*/
    public void add(int index, String value) {
-      if (index < 0 || index >= size())
-           System.out.print("Invalid index error");
+      if (index < 0 || index >= size()) {
+        System.out.print("Invalid index error");
+        return;
+      }
       if (size() >= data.length) resize();
       for (int i = size(); i > index; i--) {
         data[i] = data[i-1];
