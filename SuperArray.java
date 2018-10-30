@@ -3,29 +3,31 @@ public class SuperArray {
    private String[] data;
    // Phase 1 //
    public SuperArray() {
-      data = new String[10];
-   }
-
+      this.data = new String[10];
+      this.size = 0;
+    }
    public SuperArray(int startingCapacity) {
-			data = new String[startingCapacity];
-			size = 0;
+     if (startingCapacity < 0) {
+       throw new IllegalArgumentException("A list or array can't be of negative length!");
+     }
+			this.data = new String[startingCapacity];
+      this.size = 0;
     }
    //Removes all of the elements from this list.
    public void clear() {
-      size = 0;
-      data = new String[10];
+      this.size = 0;
    }
    //Removes all of the elements from this list.
    public int size() {
-     return size;
+     return this.size;
    }
    //Returns true if this list contains no elements.
    public boolean isEmpty() {
-      return size == 0;
+      return size() == 0;
    }
    //Appends the specified element to the end of this list. Returns true.
    public boolean add(String value) {
-     if (data.length == size()) resize();
+     if (size() >= data.length) resize();
      data[size()] = value;
      size ++;
      return true;
@@ -38,7 +40,6 @@ public class SuperArray {
      }
      data = temp;
    }
-
    /*Returns the data in the format: "[A, B, FISH, cat, Dog]"
    Without double quotes around the data elements.*/
    public String toString() {
@@ -50,7 +51,6 @@ public class SuperArray {
      newStr += "]";
      return newStr;
    }
-
    public String toStringDebug() {
       String newStr = "[";
       for (int i = 0; i < data.length; i++) {
@@ -66,15 +66,14 @@ public class SuperArray {
 			throw new IndexOutOfBoundsException("This index is invalid");
 		}
 		return data[index];
-	}
+   }
    /*Replaces the element at the specified position in this
    list with the specified element, returns the old element.*/
    public String set(int index, String value) {
-     String oldVal = "";
      if (index < 0 || index >= size()) {
        throw new IndexOutOfBoundsException("This index is invalid");
      }
-     oldVal = data[index];
+     String oldVal = data[index];
      data[index] = value;
      return oldVal;
    }
@@ -102,7 +101,6 @@ public class SuperArray {
      }
      return -1;
    }
-
    /*All elements at the index or to the right, are shifted to the right
    to make   space, then insert the specified element at the specified
    position in this list. Prints an error when index is out of range.*/
